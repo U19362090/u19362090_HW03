@@ -1,0 +1,31 @@
+﻿@model IEnumerable<HW3.Models.FileModel>
+
+@{
+    ViewBag.Title = "FileView";
+}
+
+<h2>FileView</h2>
+  
+<table class="table">
+    <thead class="thead-dark">
+        <tr>        
+            <th style="width: 50%">File Name</th>
+            <th >Download Option</th>
+            <th >Delete Option</th>
+        </tr>
+    </thead>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>@item.FileName</td>
+        <td>
+            <button class="btn btn-default">@Html.ActionLink("DOWNLOAD", "Download", new { FileName =item.FileName })</button>
+        </td>
+        <td>
+            <button class="btn btn-default">@Html.ActionLink("DELETE", "Delete", new { FileName = item.FileName })</button>
+
+        </td>
+    </tr>
+}
+
+</table>
